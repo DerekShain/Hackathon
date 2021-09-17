@@ -16,11 +16,13 @@ export class PostsController {
   }
 
   async addPost() {
+    // eslint-disable-next-line no-undef
     event.preventDefault()
     /**
      * @type {HTMLFormElement}     *
      */
     // @ts-ignore
+    // eslint-disable-next-line no-undef
     const form = event.target
     const postData = {
       // @ts-ignore
@@ -38,6 +40,7 @@ export class PostsController {
       logger.log(error)
     }
     // @ts-ignore
+    // eslint-disable-next-line no-undef
     Swal.fire({
       position: 'top-end',
       icon: 'success',
@@ -62,6 +65,7 @@ export class PostsController {
 
   async deletePost(postId) {
     // @ts-ignore
+    // eslint-disable-next-line no-undef
     Swal.fire({
       title: 'Are you sure?',
       text: "You won't be able to revert this!",
@@ -74,8 +78,19 @@ export class PostsController {
       if (result.isConfirmed) {
         await postsService.deletePost(postId)
         // @ts-ignore
+        // eslint-disable-next-line no-undef
         Swal.fire('Deleted!', 'Your file has been deleted.', 'success')
       }
     })
+  }
+
+  async drawModal(postId, creatorId) {
+    const post = await ProxyState.posts.find(p => p.id === postId)
+    document.getElementById('modalTitle').innerText = post.name
+    document.getElementById('modalPhoto').innerHTML = `
+    <img src="${post.imgUrl}" class="card-img-top" alt="...">
+    `
+    document.getElementById('modalDescription').innerText = 'Text goes here!'
+    document.getElementById('')
   }
 }
