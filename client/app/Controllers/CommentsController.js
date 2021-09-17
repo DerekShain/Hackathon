@@ -2,7 +2,8 @@ import { ProxyState } from '../AppState.js'
 import { commentService } from '../Services/CommentsService.js'
 
 function _drawComments() {
-
+  const template = ''
+  document.getElementById('commentsSection').innerHTML = template
 }
 
 export class CommentController {
@@ -24,6 +25,8 @@ export class CommentController {
       comment: form.comment.value
     }
     const Comment = commentService.createComment(formData)
+    // @ts-ignore
+    form.reset()
     return Comment
   }
 }

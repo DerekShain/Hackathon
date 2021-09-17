@@ -2,6 +2,7 @@ import { ProxyState } from '../AppState.js'
 import { postsService } from '../Services/PostsService.js'
 import { getPostTemplate } from '../Forms/PostForm.js'
 import { logger } from '../Utils/Logger.js'
+// import { Post } from "../Models/Post.js"
 
 function _drawPosts() {
   let template = ''
@@ -92,11 +93,7 @@ export class PostsController {
 
   async drawModal(postId, creatorId) {
     const post = await ProxyState.posts.find(p => p.id === postId)
-    document.getElementById('modalTitle').innerText = post.name
-    document.getElementById('modalPhoto').innerHTML = `
-    <img src="${post.imgUrl}" class="card-img-top" alt="...">
-    `
-    document.getElementById('modalDescription').innerText = 'Text goes here!'
-    document.getElementById('')
+    ProxyState.activePost = post
+    // document.getElementById('soupModal').innerHTML = Post.ModalTemplate
   }
 }

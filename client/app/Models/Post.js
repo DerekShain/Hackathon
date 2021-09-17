@@ -21,4 +21,38 @@ export class Post {
 
 `
   }
+
+  get ModalTemplate() {
+    return /* html */`<div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="modalTitle">Modal Title</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body d-flex flex-wrap">
+      <div class="col-12" id="modalPhoto"></div>
+      <div class="col-11" id="modalDescription"></div>
+      <i class="col-1 fas selectable fa-plus-circle pt-2" onclick="app.commentController.toggleForm()"></i>
+    </div>
+    <div id="comment-form" class="vissualy-hidden modal-footer text-center align-self-center">
+      <form onSubmit="app.commentController.createComment()" class="d-flex">
+        <div class="form-group col-10">
+          <label for="comment">Comment:</label>
+          <input type="text" required class="form-control" name="comment" id="comment" >
+        </div>
+        <button class="btn btn-success justify-self-end col-2 p-0" type="submit">+</button>
+      </form>
+    </div>
+    <div id="commentsSection">
+    ${this.getComments()}
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      <button type="button" class="btn btn-primary">Save changes</button>
+    </div>
+  </div>`
+  }
+
+  getComments() {
+
+  }
 }
