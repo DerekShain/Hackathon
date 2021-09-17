@@ -11,6 +11,7 @@ function _drawPosts() {
 export class PostsController {
   constructor() {
     ProxyState.on('posts', _drawPosts)
+    this.showPosts()
   }
 
   async addPost() {
@@ -25,11 +26,10 @@ export class PostsController {
       id: form.id.value,
       // @ts-ignore
       name: form.name.value,
-      category: form.category.value,
-      posScore: form.posScore.value,
-      negScore: form.negScore.value,
-      imgUrl: form.imgUrl.value,
-      creatorId: form.creatorId.value
+      // category: form.category.value,
+      // posScore: form.posScore.value,
+      // negScore: form.negScore.value,
+      imgUrl: form.imgUrl.value
     }
     try {
       await postsService.addPost(postData)
@@ -50,11 +50,9 @@ export class PostsController {
 
   showPosts() {
     _drawPosts()
-    document.getElementById(
-      'posts'
-    ).innerHTML = '<i class="fas fa-plus-circle" onclick="app.postsController.toggleForm()"></i>'
     document.getElementById('form').innerHTML = getPostTemplate()
     postsService.getPosts()
+    logger.log('showing posts')
   }
 
   toggleForm() {

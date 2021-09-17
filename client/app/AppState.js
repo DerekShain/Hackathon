@@ -8,8 +8,8 @@ class AppState extends EventEmitter {
   /** @type {import('./Models/Value').Value[]} */
   values = []
   socketData = []
-
-  posts=[]
+  /** @type {import('./Models/Post').Post[]} */
+  posts= []
   comments = []
 }
 
