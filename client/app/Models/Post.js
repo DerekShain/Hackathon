@@ -12,7 +12,7 @@ export class Post {
 
   get Template() {
     return /* html */ `
-    <div class="card m-2 masonry-with-columns" style="width: 18rem; background: #F19953">
+    <div class="card m-2 masonry-with-columns" style="width: 18rem; background: #F19953" onclick="app.postsController.drawModal('${this.id}', '${this.creatorId}')" data-bs-toggle="modal" data-bs-target="#exampleModal">
   <img src="${this.imgUrl}" class="card-img-top" alt="...">
   <div class="card-body">
     <h5 class="card-title">${this.name}</h5>
