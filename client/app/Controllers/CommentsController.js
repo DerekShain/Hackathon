@@ -1,5 +1,5 @@
-import { ProxyState } from '../AppState'
-import { commentService } from '../Services/CommentsService'
+import { ProxyState } from '../AppState.js'
+import { commentService } from '../Services/CommentsService.js'
 
 function _drawComments() {
 
