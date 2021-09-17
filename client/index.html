@@ -53,7 +53,7 @@
         <div class="justify-content-between m-3 p-2 masonry-with-columns" id="postings">
         </div>
       </div>
-      <!-- Modal Is Here -->
+      <!-- Soup Modal Is Here -->
       <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
@@ -67,7 +67,9 @@
               <i class="col-1 fas selectable fa-plus-circle pt-2" onclick="app.commentController.toggleForm()"></i>
             </div>
             <div id="comment-form" class="vissualy-hidden modal-footer">
-              <form onSubmit=""></form>
+              <form onSubmit="">
+                <input type="text">
+              </form>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
