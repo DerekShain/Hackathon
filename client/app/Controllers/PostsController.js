@@ -79,7 +79,13 @@ export class PostsController {
         await postsService.deletePost(postId)
         // @ts-ignore
         // eslint-disable-next-line no-undef
-        Swal.fire('Deleted!', 'Your file has been deleted.', 'success')
+        Swal.fire({
+          imageUrl: 'https://c.tenor.com/LFr4p6u51eUAAAAM/no-soup-for-you-seinfield.gif',
+          imageWidth: 400,
+          imageHeight: 200,
+          showConfirmButton: false,
+          timer: 2000
+        })
       }
     })
   }

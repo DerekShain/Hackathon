@@ -1,6 +1,6 @@
 export function getPostTemplate() {
   return /* html */ `
-  <form class="rounded p-2 m-2 shadow visually-hidden" onsubmit="app.postsController.addPost()" id="post-form">
+  <form class="rounded p-2 mt-5 mx-3 shadow visually-hidden" onsubmit="app.postsController.addPost()" id="post-form">
   <div class="form-group">
   <label for="name">Title:</label>
   <input type="text" class="form-control" name="name" id="name" required>
