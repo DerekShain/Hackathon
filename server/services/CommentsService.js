@@ -1,7 +1,16 @@
 import { dbContext } from '../db/DbContext'
-import { BadRequest } from '../utils/Errors'
+import { BadRequest, Forbidden } from '../utils/Errors'
 
 class CommentsService {
+  async deleteComment(commentId, userId) {
+    const comment = await this.getComment(commentId)
+    if (comment.creatorId.toString() !== userId) {
+      throw new Forbidden("this ain't your comment, chief")
+    }
+    await dbContext.Comments.remove(comment)
+    return comment
+  }
+
   async addComment(body) {
     const comment = await dbContext.Comments.create(body)
     return comment
