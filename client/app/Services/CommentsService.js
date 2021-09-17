@@ -1,6 +1,6 @@
-import { ProxyState } from '../AppState'
-import { Comment } from '../Models/Comment'
-import { api } from './AxiosService'
+import { ProxyState } from '../AppState.js'
+import { Comment } from '../Models/Comment.js'
+import { api } from './AxiosService.js'
 
 class CommentService {
   async createComment(formData) {
