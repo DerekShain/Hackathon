@@ -23,7 +23,7 @@
   <header>
 
 
-    <nav class="navbar navbar-dark navbar-expand bg-dark text-light">
+    <nav class="navbar fixed-top navbar-dark navbar-expand bg-dark text-light">
       <a class="navbar-brand" href="#">
         <img src="./assets/img/icon.png" height="45" alt="" loading="lazy">
         <span class="ml-2">Not Soup For Work.</span>
@@ -43,13 +43,12 @@
   </header>
 
 
-  <main id="app">
-    <div class="container-fluid ">
-      <div class="row my-3">
-        <div class="col-lg-5" id="form"></div>
+  <main id="app" class="mt-3">
+    <div class="">
+      <div class="row my-3 ">
+        <div class="col-lg-4" id="form"></div>
       </div>
       <div class="row ">
-
         <div class="justify-content-between m-3 p-2 masonry-with-columns" id="postings">
         </div>
       </div>
@@ -84,13 +83,16 @@
       </div>
     </div>
   </main>
-  <footer class="container-fluid bg-dark text-light">
+
+
+  <footer class="container-fluid fixed-bottom bg-dark text-light">
     <div class="row text-center">
       <div class="col">
         <p><small>Made with 💖 by CodeWorks</small></p>
       </div>
     </div>
   </footer>
+
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js"

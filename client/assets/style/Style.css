@@ -11,3 +11,6 @@
 .grid-item--height2 {
   height: 140px;
 }
+.container {
+  max-width: 75vw !important;
+}
