@@ -4,7 +4,8 @@ export const PostSchema = new Schema({
   id: { type: String, required: true },
   name: { type: String, required: true },
   category: { type: String, required: true },
-  score: { type: Number, default: 0 },
+  posScore: { type: Number, default: 0 },
+  negScore: { type: Number, default: 0 },
   imgUrl: { type: String, required: true },
   creatorId: { type: Schema.Types.ObjectId, ref: 'Account', required: true }
 },
