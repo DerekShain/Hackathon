@@ -4,6 +4,15 @@ export class CommentsController extends BaseController {
   constructor() {
     super('api/comments')
     this.router
-      .get
+      .get('', this.getComments)
+      .get('', this.getComments)
+      .
+  }
+  getComments() {
+    try {
+      
+    } catch (error) {
+      
+    }
   }
 }
