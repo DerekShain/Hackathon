@@ -16,7 +16,7 @@ export class Post {
   <img src="${this.imgUrl}" class="card-img-top" alt="...">
   <div class="card-body">
     <h5 class="card-title">${this.name}</h5>
-    <i class="fas fa-trash-alt ${this.creatorId !== ProxyState.account.id ? 'visually-hidden' : ''}" onclick="app.postsController.deletePost('${this.id}')"></i>
+    <i class="fas fa-trash-alt ${this.creatorId !== ProxyState.account.id ? 'visually-hidden' : ''} selectable" onclick="app.postsController.deletePost('${this.id}')"></i>
     </div>
     </div>
   </div>
