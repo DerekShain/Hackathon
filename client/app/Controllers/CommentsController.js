@@ -1,9 +1,29 @@
+import { ProxyState } from '../AppState'
+import { commentService } from '../Services/CommentsService'
+
+function _drawComments() {
+
+}
+
 export class CommentController {
   constructor() {
-    console.log('Hello From the Comment Controller')
+    ProxyState.on('comments', _drawComments)
   }
 
   toggleForm() {
     document.getElementById('comment-form').classList.toggle('visually-hidden')
+  }
+
+  async createComment() {
+    // eslint-disable-next-line no-undef
+    event.preventDefault()
+    // eslint-disable-next-line no-undef
+    const form = event.target
+    const formData = {
+      // @ts-ignore
+      comment: form.comment.value
+    }
+    const Comment = commentService.createComment(formData)
+    return Comment
   }
 }
