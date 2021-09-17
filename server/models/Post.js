@@ -1,7 +1,6 @@
 import mongoose from 'mongoose'
 const Schema = mongoose.Schema
 export const PostSchema = new Schema({
-  id: { type: String, required: true },
   name: { type: String, required: true },
   category: { type: String, required: true },
   posScore: { type: Number, default: 0 },
