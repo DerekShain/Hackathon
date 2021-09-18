@@ -1,4 +1,5 @@
 import { ProxyState } from '../AppState.js'
+import { Comment } from '../Models/Comment.js'
 import { Post } from '../Models/Post.js'
 import { api } from './AxiosService.js'
 class PostsService {
@@ -6,8 +7,9 @@ class PostsService {
     const post = ProxyState.posts.find(p => p.id === postId)
     ProxyState.activePost = post
     const res = await api.get(`/api/posts/${postId}/comments`)
+    ProxyState.activeComments = res.data.map(c => new Comment(c))
     // eslint-disable-next-line no-console
-    console.log(res)
+    console.log(ProxyState.activeComments)
   }
 
   async deletePost(postId) {

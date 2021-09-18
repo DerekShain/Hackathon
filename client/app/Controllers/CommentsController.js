@@ -3,15 +3,14 @@ import { commentService } from '../Services/CommentsService.js'
 
 function _drawComments() {
   let template = ''
-  const comments = ProxyState.comments.filter(c => c.id === ProxyState.activePost.id)
   // eslint-disable-next-line no-return-assign
-  comments.forEach(c => template += c.Template)
+  ProxyState.activeComments.forEach(c => template += c.Template)
   document.getElementById('commentsSection').innerHTML = template
 }
 
 export class CommentController {
   constructor() {
-    ProxyState.on('comments', _drawComments)
+    ProxyState.on('activeComments', _drawComments)
     this.getComments()
   }
 
