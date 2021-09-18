@@ -2,17 +2,26 @@ import { ProxyState } from '../AppState.js'
 import { commentService } from '../Services/CommentsService.js'
 
 function _drawComments() {
-  const template = ''
+  let template = ''
+  const comments = ProxyState.comments.filter(c => c.id === ProxyState.activePost.id)
+  // eslint-disable-next-line no-return-assign
+  comments.forEach(c => template += c.Template)
   document.getElementById('commentsSection').innerHTML = template
 }
 
 export class CommentController {
   constructor() {
     ProxyState.on('comments', _drawComments)
+    this.getComments()
   }
 
   toggleForm() {
     document.getElementById('comment-form').classList.toggle('visually-hidden')
+  }
+
+  async getComments() {
+    const comments = commentService.getComments()
+    return comments
   }
 
   async createComment() {

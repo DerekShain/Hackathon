@@ -2,17 +2,22 @@ import { ProxyState } from '../AppState.js'
 import { postsService } from '../Services/PostsService.js'
 import { getPostTemplate } from '../Forms/PostForm.js'
 import { logger } from '../Utils/Logger.js'
-// import { Post } from '../Models/Post.js'
 
 function _drawPosts() {
   let template = ''
   ProxyState.posts.forEach((post) => (template += post.Template))
   document.getElementById('postings').innerHTML = template
 }
+
+function _drawModal() {
+  document.getElementById('soupModal').innerHTML = ProxyState.activePost.ModalTemplate
+}
+
 export class PostsController {
   constructor() {
     ProxyState.on('posts', _drawPosts)
     ProxyState.on('account', _drawPosts)
+    ProxyState.on('activePost', _drawModal)
     this.showPosts()
   }
 
@@ -92,8 +97,8 @@ export class PostsController {
   }
 
   async drawModal(postId, creatorId) {
+    // TODO Move to service
     const post = await ProxyState.posts.find(p => p.id === postId)
     ProxyState.activePost = post
-    // document.getElementById('soupModal').innerHTML = Post.ModalTemplate
   }
 }
