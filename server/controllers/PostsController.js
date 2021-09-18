@@ -1,4 +1,5 @@
 import { Auth0Provider } from '@bcwdev/auth0provider'
+import { commentsService } from '../services/CommentsService'
 import { postsService } from '../services/PostsService'
 import BaseController from '../utils/BaseController'
 import { logger } from '../utils/Logger'
@@ -9,9 +10,19 @@ export class PostsController extends BaseController {
     this.router
       .get('', this.getAllPosts)
       .get('/:id', this.getPostById)
+      .get('/:id/comments', this.getCommentsByPostId)
       .use(Auth0Provider.getAuthorizedUserInfo)
       .post('', this.createPost)
       .delete('/:id', this.deletePost)
+  }
+
+  async getCommentsByPostId(req, res, next) {
+    try {
+      const comments = await commentsService.getCommentsByPostId(req.params.id)
+      res.send(comments)
+    } catch (error) {
+      next(error)
+    }
   }
 
   async deletePost(req, res, next) {
