@@ -14113,6 +14113,7 @@ main {
   display: inline-block;
   font-family: system-ui;
   font-weight: 500;
+  overflow: hidden;
 }
 
 /*# sourceMappingURL=main.css.map */
