@@ -2,6 +2,11 @@ import { dbContext } from '../db/DbContext'
 import { BadRequest, Forbidden } from '../utils/Errors'
 
 class CommentsService {
+  async getCommentsByPostId(postId) {
+    const comments = await dbContext.Comments.find({ postId: postId })
+    return comments
+  }
+
   async deleteComment(commentId, userId) {
     const comment = await this.getComment(commentId)
     if (comment.creatorId.toString() !== userId) {
