@@ -2,6 +2,12 @@ import { ProxyState } from '../AppState.js'
 import { Post } from '../Models/Post.js'
 import { api } from './AxiosService.js'
 class PostsService {
+  async getCommentsByPostId(postId, creatorId) {
+    const res = await api.get(`/api/posts/${postId}/comments`)
+    // eslint-disable-next-line no-console
+    console.log(res)
+  }
+
   async deletePost(postId) {
     await api.delete('api/posts/' + postId)
     ProxyState.posts = ProxyState.posts.filter(c => c.id !== postId)

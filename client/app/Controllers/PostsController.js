@@ -96,9 +96,14 @@ export class PostsController {
     })
   }
 
-  async drawModal(postId, creatorId) {
-    // TODO Move to service
-    const post = await ProxyState.posts.find(p => p.id === postId)
-    ProxyState.activePost = post
+  async getCommentsById(postId, creatorId) {
+    try {
+      const post = ProxyState.posts.find(p => p.id === postId)
+      ProxyState.activePost = post
+      await postsService.getCommentsByPostId(postId, creatorId)
+    } catch (error) {
+      // eslint-disable-next-line no-console
+      console.log(error)
+    }
   }
 }

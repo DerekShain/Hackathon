@@ -4,8 +4,8 @@ import { api } from './AxiosService.js'
 
 class CommentService {
   async getComments() {
-    const comments = await api.get('/api/posts/:id/comments')
-    comments.forEach(c => [ProxyState.comments, new Comment(c)])
+    // let x = ProxyState.activePost.id
+    // const comments = await api.get('/api/posts/' + x +'/comments')
   }
 
   async createComment(formData) {
