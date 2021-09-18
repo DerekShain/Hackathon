@@ -37,4 +37,9 @@ export class CommentController {
     form.reset()
     return Comment
   }
+
+  async deleteComment(commentId) {
+    const res = await commentService.deleteComment(commentId)
+    return res
+  }
 }

@@ -8,8 +8,9 @@ export class Comment {
 
   get Template() {
     return /* html */ `
-    <div class="text-center">
+    <div class="d-flex justify-content-between px-5 py-1">
     <div>${this.comment}</div>
+    <button class="btn btn-danger" onclick="app.commentsController.deleteComment(${this.id})">-</button>
     </div>
     `
   }
