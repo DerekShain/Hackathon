@@ -13,10 +13,10 @@ export class Post {
 
   get Template() {
     return /* html */ `
-    <div class="card m-2 masonry-with-columns shadow" >
+    <div class=" rounded m-2 masonry-with-columns shadow-sm" >
   <img src="${this.imgUrl}" class="card-img-top" alt="..." onclick="app.postsController.getCommentsById('${this.id}', '${this.creatorId}')" data-bs-toggle="modal" data-bs-target="#exampleModal">
 
-    <h5 class="card-title">${this.name}</h5>
+    <h5 class="card-title px-3 py-1">${this.name}</h5>
     <i class="fas fa-trash-alt ${this.creatorId !== ProxyState.account.id ? 'visually-hidden' : ''} selectable" onclick="app.postsController.deletePost('${this.id}')"></i>
     </div>
 
