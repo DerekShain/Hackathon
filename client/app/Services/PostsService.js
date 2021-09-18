@@ -3,6 +3,8 @@ import { Post } from '../Models/Post.js'
 import { api } from './AxiosService.js'
 class PostsService {
   async getCommentsByPostId(postId, creatorId) {
+    const post = ProxyState.posts.find(p => p.id === postId)
+    ProxyState.activePost = post
     const res = await api.get(`/api/posts/${postId}/comments`)
     // eslint-disable-next-line no-console
     console.log(res)

@@ -98,8 +98,6 @@ export class PostsController {
 
   async getCommentsById(postId, creatorId) {
     try {
-      const post = ProxyState.posts.find(p => p.id === postId)
-      ProxyState.activePost = post
       await postsService.getCommentsByPostId(postId, creatorId)
     } catch (error) {
       // eslint-disable-next-line no-console
