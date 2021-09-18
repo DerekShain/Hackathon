@@ -8,6 +8,10 @@ class App {
   valuesController = new ValuesController();
   postsController = new PostsController()
   commentsController = new CommentsController()
+
+  toggleBlur() {
+    document.body.classList.toggle('blurred')
+  }
 }
 
 // @ts-ignore

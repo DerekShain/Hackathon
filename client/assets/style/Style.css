@@ -48,3 +48,11 @@
   border-bottom-left-radius: calc(0.3rem - 1px);
   justify-content: space-between;
 }
+
+body.blurred .post-image {
+  filter: blur(40px);
+}
+
+.post-image {
+  transition: all 0.85s ease-in-out;
+}
