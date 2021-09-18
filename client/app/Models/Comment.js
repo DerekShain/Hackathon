@@ -5,4 +5,12 @@ export class Comment {
     this.creatorId = commentData.creatorId
     this.postId = commentData.postId
   }
+
+  get Template() {
+    return /* html */ `
+    <div class="text-center">
+    <div>${this.comment}</div>
+    </div>
+    `
+  }
 }

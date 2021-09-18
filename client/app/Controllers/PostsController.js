@@ -8,10 +8,16 @@ function _drawPosts() {
   ProxyState.posts.forEach((post) => (template += post.Template))
   document.getElementById('postings').innerHTML = template
 }
+
+function _drawModal() {
+  document.getElementById('soupModal').innerHTML = ProxyState.activePost.ModalTemplate
+}
+
 export class PostsController {
   constructor() {
     ProxyState.on('posts', _drawPosts)
     ProxyState.on('account', _drawPosts)
+    ProxyState.on('activePost', _drawModal)
     this.showPosts()
   }
 
@@ -91,12 +97,8 @@ export class PostsController {
   }
 
   async drawModal(postId, creatorId) {
+    // TODO Move to service
     const post = await ProxyState.posts.find(p => p.id === postId)
-    document.getElementById('modalTitle').innerText = post.name
-    document.getElementById('modalPhoto').innerHTML = `
-    <img src="${post.imgUrl}" class="card-img-top" alt="...">
-    `
-    document.getElementById('modalDescription').innerText = 'Text goes here!'
-    document.getElementById('')
+    ProxyState.activePost = post
   }
 }
