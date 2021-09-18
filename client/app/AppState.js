@@ -10,6 +10,7 @@ class AppState extends EventEmitter {
   socketData = []
   /** @type {import('./Models/Post').Post[]} */
   posts= []
+  activeComments= []
   /** @type {import('./Models/Comment').Comment[]} */
 
   comments = []
