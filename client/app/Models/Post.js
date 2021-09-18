@@ -35,7 +35,7 @@ export class Post {
       <i class="col-1 fas selectable fa-plus-circle pt-2" onclick="app.commentController.toggleForm()"></i>
     </div>
     <div id="comment-form" class="visually-hidden modal-footer text-center align-self-center">
-      <form onSubmit="app.commentController.createComment()">
+      <form onsubmit="app.commentController.createComment()">
         <div class="form-group col-10">
           <label for="comment">Comment:</label>
           <input type="text" required class="form-control" name="comment" id="comment" >
