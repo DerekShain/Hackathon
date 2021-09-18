@@ -32,10 +32,9 @@ export class CommentController {
       // @ts-ignore
       comment: form.comment.value
     }
-    const Comment = commentService.createComment(formData)
+    await commentService.createComment(formData)
     // @ts-ignore
     form.reset()
-    return Comment
   }
 
   async deleteComment(commentId) {
