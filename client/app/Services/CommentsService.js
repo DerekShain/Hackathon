@@ -16,7 +16,7 @@ class CommentService {
 
   async createComment(formData) {
     formData.postId = ProxyState.activePost.id
-    const res = await api.post(`api/posts/${ProxyState.activePost.id}/comments`, formData)
+    const res = await api.post(`/api/posts/${ProxyState.activePost.id}/comments`, formData)
     ProxyState.comments = [...ProxyState.comments, new Comment(res.data)]
   }
 }
