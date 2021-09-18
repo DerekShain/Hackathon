@@ -17,6 +17,7 @@ export class PostsController {
     ProxyState.on('posts', _drawPosts)
     ProxyState.on('account', _drawPosts)
     ProxyState.on('activePost', _drawModal)
+    ProxyState.on('comments', _drawModal)
     this.showPosts()
   }
 

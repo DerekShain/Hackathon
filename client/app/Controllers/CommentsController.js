@@ -1,5 +1,6 @@
 import { ProxyState } from '../AppState.js'
 import { commentService } from '../Services/CommentsService.js'
+import { logger } from '../Utils/Logger.js'
 
 function _drawComments() {
   let template = ''
@@ -8,7 +9,7 @@ function _drawComments() {
   document.getElementById('commentsSection').innerHTML = template
 }
 
-export class CommentController {
+export class CommentsController {
   constructor() {
     ProxyState.on('activeComments', _drawComments)
     this.getComments()
@@ -32,7 +33,11 @@ export class CommentController {
       // @ts-ignore
       comment: form.comment.value
     }
-    await commentService.createComment(formData)
+    try {
+      await commentService.createComment(formData)
+    } catch (error) {
+      logger.log(error)
+    }
     // @ts-ignore
     form.reset()
   }

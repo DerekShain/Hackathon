@@ -1,3 +1,4 @@
+
 import { ProxyState } from '../AppState.js'
 export class Post {
   constructor(postData) {
@@ -32,10 +33,10 @@ export class Post {
     <div class="modal-body d-flex flex-wrap">
       <img src="${this.imgUrl}" class="card-img-top" alt="...">
       <div class="col-11">Text goes here</div>
-      <i class="col-1 fas selectable fa-plus-circle pt-2" onclick="app.commentController.toggleForm()"></i>
+      <i class="col-1 fas selectable fa-plus-circle pt-2" onclick="app.commentsController.toggleForm()"></i>
     </div>
     <div id="comment-form" class="visually-hidden modal-footer text-center align-self-center">
-      <form onsubmit="app.commentController.createComment()">
+      <form onsubmit="app.commentsController.createComment()">
         <div class="form-group col-10">
           <label for="comment">Comment:</label>
           <input type="text" required class="form-control" name="comment" id="comment" >
@@ -44,7 +45,6 @@ export class Post {
       </form>
     </div>
     <div id="commentsSection">
-
     </div>
     <div class="modal-footer">
       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -52,12 +52,5 @@ export class Post {
     </div>
   </div>
   `
-  }
-
-  getComments() {
-    let template = ''
-    const comments = ProxyState.comments.filter(c => c.postId === this.id)
-    comments.forEach(c => { template += c.Template })
-    return template
   }
 }
