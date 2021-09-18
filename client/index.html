@@ -35,7 +35,7 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
           <!-- NAVLINKS -->
-          <i class="fas selectable fa-plus-circle" onclick="app.postsController.toggleForm()"></i>
+          <i class="fas selectable fa-plus-circle" data-bs-toggle="modal" data-bs-target="#formModal"></i>
         </div>
       </div>
       <div class="flex-grow-1 justify-content-end align-items-center d-flex" id="authstate"></div>
@@ -55,7 +55,7 @@
       <!-- Soup Modal Is Here -->
       <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" id="soupModal">
-          
+
         </div>
       </div>
     </div>
@@ -87,8 +87,47 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
     crossorigin="anonymous"></script>
-
   <script src="app/main.js" type="module"></script>
+
+
+
+
+
+
+
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="formModal" tabindex="-1" aria-labelledby="formModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="formModalLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form class="rounded p-2 mt-5 mx-3" onsubmit="app.postsController.addPost()" id="post-form">
+            <div class="form-group">
+              <label for="name">Title:</label>
+              <input type="text" class="form-control" name="name" id="name" required>
+            </div>
+
+            <div class="form-group">
+              <label for="imgUrl">Image:</label>
+              <input type="url" class="form-control" name="imgUrl" id="imgUrl" required>
+            </div>
+            <div class="button-group my-3">
+              <button type="submit" class="btn btn-secondary">Submit</button>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>

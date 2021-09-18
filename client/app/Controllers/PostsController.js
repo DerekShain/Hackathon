@@ -1,6 +1,5 @@
 import { ProxyState } from '../AppState.js'
 import { postsService } from '../Services/PostsService.js'
-import { getPostTemplate } from '../Forms/PostForm.js'
 import { logger } from '../Utils/Logger.js'
 
 function _drawPosts() {
@@ -60,7 +59,6 @@ export class PostsController {
 
   showPosts() {
     _drawPosts()
-    document.getElementById('form').innerHTML = getPostTemplate()
     postsService.getPosts()
     logger.log('showing posts')
   }
