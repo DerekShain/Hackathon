@@ -37,18 +37,14 @@ export class Post {
     </div>
     <div id="comment-form" class="visually-hidden modal-footer text-center align-self-center">
       <form onsubmit="app.commentsController.createComment()">
-        <div class="form-group col-10">
+        <div class="form-group col-10 p-2">
           <label for="comment">Comment:</label>
           <input type="text" required class="form-control" name="comment" id="comment" >
         </div>
         <button class="btn btn-success justify-self-end" type="submit">+</button>
       </form>
     </div>
-    <div id="commentsSection">
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-      <button type="button" class="btn btn-primary">Save changes</button>
+    <div class="p-2" id="commentsSection">
     </div>
   </div>
   `
