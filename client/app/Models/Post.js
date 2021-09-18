@@ -30,18 +30,17 @@ export class Post {
       <h5 class="modal-title">${this.name}</h5>
       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
     </div>
-    <div class="modal-body d-flex flex-wrap">
+    <div class="modal-body flex-wrap">
       <img src="${this.imgUrl}" class="card-img-top" alt="...">
       <div class="col-11">Text goes here</div>
       <i class="col-1 fas selectable fa-plus-circle pt-2" onclick="app.commentsController.toggleForm()"></i>
     </div>
-    <div id="comment-form" class="visually-hidden modal-footer text-center align-self-center">
+    <div id="comment-form" class="visually-hidden modal-footer alight-self-start">
       <form onsubmit="app.commentsController.createComment()">
-        <div class="form-group col-10 p-2">
-          <label for="comment">Comment:</label>
-          <input type="text" required class="form-control" name="comment" id="comment" >
-        </div>
-        <button class="btn btn-success justify-self-end" type="submit">+</button>
+        <div class="form-group p-2">
+          <input type="text" required class="form-control" name="comment" id="comment" label="Add Comment">
+          <button class="btn btn-success justify-self-end" type="submit"><i class="fas fa-plus-circle selectable"></i></button>
+          </div>
       </form>
     </div>
     <div class="p-2" id="commentsSection">

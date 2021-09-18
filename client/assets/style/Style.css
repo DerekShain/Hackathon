@@ -38,3 +38,13 @@
 .myBtn:hover {
   background-color: #555; /* Add a dark-grey background on hover */
 }
+
+.modal-footer {
+  display: flex;
+  flex-shrink: 0;
+  padding: 0.75rem;
+  border-top: 1px solid #dee2e6;
+  border-bottom-right-radius: calc(0.3rem - 1px);
+  border-bottom-left-radius: calc(0.3rem - 1px);
+  justify-content: space-between;
+}

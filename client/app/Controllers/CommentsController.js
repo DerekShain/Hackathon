@@ -43,7 +43,6 @@ export class CommentsController {
   }
 
   async deleteComment(commentId) {
-    const res = await commentService.deleteComment(commentId)
-    return res
+    await commentService.deleteComment(commentId)
   }
 }
